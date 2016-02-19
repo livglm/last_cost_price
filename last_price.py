@@ -29,7 +29,7 @@ class product_last_price(models.Model):
     _description = "Product extension for last price"
 
 
-    @api.multi
+    @api.one
     @api.depends('standard_price')
     def _last_purchase_price(self):
 
@@ -80,6 +80,6 @@ class product_last_price(models.Model):
         print res
         return res
 
-    last_purchase_price = fields.Float(compute = _last_purchase_price, store=True,
+    last_purchase_price = fields.Float(compute = '_last_purchase_price', store=True,
         digits_compute=dp.get_precision('Product Price'),
         )
