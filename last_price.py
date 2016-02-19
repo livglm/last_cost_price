@@ -33,6 +33,7 @@ class product_last_price(models.Model):
     @api.depends('standard_price')
     def _last_purchase_price(self):
 
+        print "qqqq"
         if self._context.get('shop', False):
             self.env.cr.execute('select warehouse_id from sale_shop where id=%s', (int(self._ccontext['shop']),))
             res2 = self.env.cr.fetchone()
