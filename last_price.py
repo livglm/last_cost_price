@@ -23,7 +23,7 @@ from openerp import models, fields, api, workflow, _, exceptions
 
 class product_last_price(models.Model):
 
-    _inherit = 'product.product'
+    _inherit = 'product.template'
     _description = "Product extension for last price"
 
     @api.multi
@@ -69,8 +69,10 @@ class product_last_price(models.Model):
         res={}.fromkeys(self.env.ids, 0.0)
         if results:
             res[ids[0]]=results[0][1]
+
+        self.standard_price = res
         import pdb; pdb.set_trace()
 
         return res
 
-        standard_price = fields.Float(compute = '_last_purchase_price')
+        price = fields.Float(compute = '_last_purchase_price')
