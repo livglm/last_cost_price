@@ -20,7 +20,7 @@
 ##############################################################################
 
 {
-    'name': 'Sale Margin No Onchange',
+    'name': 'Last cost price',
     'version': '0.1',
     'category': 'Accounting & Finance',
     'license': 'AGPL-3',
@@ -28,9 +28,8 @@
     'description': """,
     'author': 'Akretion',
     'website': 'http://www.tidielle.it',
-    'depends': ['sale'],
+    'depends': ['purchase'],
     'data': [
-        'sale_view.xml',
     ],
     'installable': True,
 }
