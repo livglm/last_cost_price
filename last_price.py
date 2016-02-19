@@ -30,7 +30,7 @@ class product_last_price(models.Model):
 
 
     @api.one
-    @api.depends('standard_price')
+    @api.depends('product_id')
     def _last_purchase_price(self):
 
         print "qqqq"
