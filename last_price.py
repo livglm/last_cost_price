@@ -75,4 +75,4 @@ class product_last_price(models.Model):
 
         return res
 
-        price = fields.Float(compute = '_last_purchase_price')
+        last_purchase_price = fields.Float(compute = '_last_purchase_price')
