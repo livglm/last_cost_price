@@ -26,9 +26,9 @@ class product_last_price(models.Model):
     _inherit = 'product.template'
     _description = "Product extension for last price"
 
-    last_purchase_price = fields.Float(compute = '_last_purchase_price')
 
     @api.multi
+    @api.depends('last_purchase_price')
     def _last_purchase_price(self):
 
         if context.get('shop', False):
@@ -77,3 +77,4 @@ class product_last_price(models.Model):
 
         return res
 
+    last_purchase_price = fields.Float(compute = _last_purchase_price)
