@@ -34,24 +34,24 @@ class product_last_price(models.Model):
     def _last_purchase_price(self):
 
         if self._context.get('shop', False):
-            self.env.cr.execute('select warehouse_id from sale_shop where id=%s', (int(context['shop']),))
+            self.env.cr.execute('select warehouse_id from sale_shop where id=%s', (int(self._ccontext['shop']),))
             res2 = self.env.cr.fetchone()
             if res2:
-                context['warehouse'] = res2[0]
+                self._ccontext['warehouse'] = res2[0]
 
-        if context.get('warehouse', False):
-            self.env.cr.execute('select lot_stock_id from stock_warehouse where id=%s', (int(context['warehouse']),))
+        if self._ccontext.get('warehouse', False):
+            self.env.cr.execute('select lot_stock_id from stock_warehouse where id=%s', (int(self._ccontext['warehouse']),))
             res2 = self.env.cr.fetchone()
             if res2:
-                context['location'] = res2[0]
+                self._ccontext['location'] = res2[0]
 
-        if context.get('location', False):
-            if type(context['location']) == type(1):
-                location_ids = [context['location']]
-            elif type(context['location']) in (type(''), type(u'')):
-                location_ids = self.env['stock.location'].search([('name','ilike',context['location'])])
+        if self._ccontext.get('location', False):
+            if type(self._ccontext['location']) == type(1):
+                location_ids = [self._ccontext['location']]
+            elif type(self._ccontext['location']) in (type(''), type(u'')):
+                location_ids = self.env['stock.location'].search([('name','ilike',self._ccontext['location'])])
             else:
-                location_ids = context['location']
+                location_ids = self._ccontext['location']
         else:
             location_ids = []
             wids = self.env['stock.warehouse'].search([])
