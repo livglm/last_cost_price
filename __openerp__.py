@@ -25,7 +25,7 @@
     'category': 'Accounting & Finance',
     'license': 'AGPL-3',
     'summary': 'Copy standard price on sale order line and compute margins',
-    'description': """,
+    'description': "",
     'author': 'Akretion',
     'website': 'http://www.tidielle.it',
     'depends': ['purchase'],
