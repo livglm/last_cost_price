@@ -20,7 +20,6 @@
 ##############################################################################
 
 from openerp import models, fields, api, workflow, _, exceptions
-import decimal_precision as dp
 
 class product_last_price(models.Model):
 
