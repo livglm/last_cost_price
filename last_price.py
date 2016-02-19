@@ -20,10 +20,12 @@
 ##############################################################################
 
 from openerp import models, fields, api, workflow, _, exceptions
+import openerp.addons.decimal_precision as dp
+
 
 class product_last_price(models.Model):
 
-    _inherit = 'product.template'
+    _inherit = 'product.product'
     _description = "Product extension for last price"
 
 
@@ -77,4 +79,6 @@ class product_last_price(models.Model):
 
         return res
 
-    last_purchase_price = fields.Float(compute = _last_purchase_price)
+    last_purchase_price = fields.Float(compute = _last_purchase_price, store=True,
+        digits_compute=dp.get_precision('Product Price'),
+        )
