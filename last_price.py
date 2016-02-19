@@ -69,7 +69,8 @@ class product_last_price(models.Model):
         res={}.fromkeys(self.env.ids, 0.0)
         if results:
             res[ids[0]]=results[0][1]
-        #~ import pdb; pdb.set_trace()
+        import pdb; pdb.set_trace()
+
         return res
 
         standard_price = fields.Float(compute = '_last_purchase_price')
