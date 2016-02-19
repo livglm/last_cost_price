@@ -73,4 +73,4 @@ class product_last_price(models.Model):
         #~ import pdb; pdb.set_trace()
         return res
 
-     standard_price = fields.Float(compute = '_last_purchase_price')
+        standard_price = fields.Float(compute = '_last_purchase_price')
