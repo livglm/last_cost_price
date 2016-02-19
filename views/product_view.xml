@@ -8,7 +8,6 @@
             <xpath expr="//field[@name='standard_price']/.." position="after">
                 <group name="Cost">
                     <field name="last_purchase_price"/>
-
                 </group>
             </xpath>
         </field>

@@ -75,8 +75,8 @@ class product_last_price(models.Model):
             res[ids[0]]=results[0][1]
 
         self.standard_price = res
-        import pdb; pdb.set_trace()
-
+        #import pdb; pdb.set_trace()
+        print res
         return res
 
     last_purchase_price = fields.Float(compute = _last_purchase_price, store=True,
