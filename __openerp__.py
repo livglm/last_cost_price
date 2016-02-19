@@ -29,7 +29,7 @@
     'author': 'Akretion',
     'website': 'http://www.tidielle.it',
     'depends': ['purchase'],
-    'data': ['views/product_view',
+    'data': ['views/product_view.xml',
              ],
     'installable': True,
 }
